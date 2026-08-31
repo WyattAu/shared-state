@@ -13,6 +13,12 @@ tokio = { version = "1", features = ["sync", "time"] }
 
 [dev-dependencies]
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "test-util"] }
+criterion = { version = "0.5", features = ["html_reports"] }
+
 
 [lints.rust]
 unsafe_code = "forbid"
+
+[[bench]]
+name = "state_bench"
+harness = false
