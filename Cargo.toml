@@ -6,6 +6,8 @@ rust-version = "1.85"
 description = "Concurrent state utilities — readiness gates, TTL caches, shared counters, type aliases"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/shared-state"
+keywords = ["state", "concurrency", "cache"]
+categories = ["rust-patterns"]
 
 [dependencies]
 dashmap = "6"
@@ -14,6 +16,7 @@ tokio = { version = "1", features = ["sync", "time"] }
 [dev-dependencies]
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "test-util"] }
 criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1"
 
 
 [lints.rust]
