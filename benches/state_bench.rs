@@ -1,4 +1,4 @@
-use criterion::{criterion_group, criterion_main, Criterion};
+use criterion::{Criterion, criterion_group, criterion_main};
 use shared_state::ReadyGate;
 use shared_state::counter::SharedCounter;
 use std::time::Duration;

@@ -1,7 +1,7 @@
 //! Atomic counter utilities.
 
-use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 /// A thread-safe atomic counter.
 pub struct SharedCounter {

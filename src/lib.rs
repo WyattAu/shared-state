@@ -7,9 +7,11 @@
 //! caches, [`SharedCounter`] for atomic counters, and type aliases for common
 //! concurrent patterns.
 
+pub mod counter;
 pub mod ready;
 pub mod ttl;
-pub mod counter;
+
+pub use ready::ReadyGate;
 
 /// Type alias for a shared concurrent map backed by `tokio::sync::RwLock`.
 pub type SharedMap<K, V> = std::sync::Arc<tokio::sync::RwLock<std::collections::HashMap<K, V>>>;

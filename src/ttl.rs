@@ -1,8 +1,8 @@
 //! Time-to-live cache backed by DashMap.
 
+use dashmap::DashMap;
 use std::hash::Hash;
 use std::time::{Duration, Instant};
-use dashmap::DashMap;
 
 /// A cache entry with expiration time.
 struct CacheEntry<V> {
