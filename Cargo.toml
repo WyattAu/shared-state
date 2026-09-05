@@ -18,9 +18,14 @@ tokio = { version = "1", features = ["rt-multi-thread", "macros", "test-util"] }
 criterion = { version = "0.5", features = ["html_reports"] }
 proptest = "1"
 
+# Model-checking tests (see src/loom_tests.rs). Activated only with
+# RUSTFLAGS="--cfg loom"; the lib swaps std atomics for loom's equivalents.
+[target.'cfg(loom)'.dependencies]
+loom = "0.7"
 
 [lints.rust]
 unsafe_code = "forbid"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(loom)'] }
 
 [[bench]]
 name = "state_bench"

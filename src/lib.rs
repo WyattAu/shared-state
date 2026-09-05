@@ -11,6 +11,9 @@ pub mod counter;
 pub mod ready;
 pub mod ttl;
 
+#[cfg(loom)]
+mod loom_tests;
+
 pub use ready::ReadyGate;
 
 /// Type alias for a shared concurrent map backed by `tokio::sync::RwLock`.

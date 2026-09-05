@@ -10,6 +10,6 @@ jobs:
     with:
       tier: c
       all-features: true
-      loom: false
+      loom: true
       wasm: false
       miri: false

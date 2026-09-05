@@ -1,6 +1,15 @@
 //! Atomic counter utilities.
+//!
+//! The atomic and `Arc` types are swapped for loom's equivalents under
+//! `cfg(loom)` (see `loom_tests`) so the update discipline is model-checked.
 
+#[cfg(loom)]
+use loom::sync::Arc;
+#[cfg(loom)]
+use loom::sync::atomic::{AtomicU64, Ordering};
+#[cfg(not(loom))]
 use std::sync::Arc;
+#[cfg(not(loom))]
 use std::sync::atomic::{AtomicU64, Ordering};
 
 /// A thread-safe atomic counter.

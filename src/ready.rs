@@ -1,5 +1,11 @@
 //! Readiness gate for service health probing.
+//!
+//! The atomic type is swapped for loom's equivalent under `cfg(loom)`
+//! (see `loom_tests`) so the Release/Acquire discipline is model-checked.
 
+#[cfg(loom)]
+use loom::sync::atomic::{AtomicBool, Ordering};
+#[cfg(not(loom))]
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Duration;
 
