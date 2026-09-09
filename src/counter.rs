@@ -72,6 +72,8 @@ impl SharedCounter {
 }
 
 #[cfg(test)]
+// Test code: unwrap is the idiomatic way to assert join success.
+#[allow(clippy::unwrap_used)]
 mod tests {
     use super::*;
 
