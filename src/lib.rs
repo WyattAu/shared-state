@@ -3,8 +3,8 @@
 
 //! Concurrent state utilities for Rust services.
 //!
-//! Provides [`ReadyGate`] for readiness probing, [`TtlCache`] for time-expiring
-//! caches, [`SharedCounter`] for atomic counters, and type aliases for common
+//! Provides [`ReadyGate`] for readiness probing, [`ttl::TtlCache`] for time-expiring
+//! caches, [`counter::SharedCounter`] for atomic counters, and type aliases for common
 //! concurrent patterns.
 
 pub mod counter;

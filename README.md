@@ -1,5 +1,9 @@
 # shared-state
 
+[![docs.rs](https://docs.rs/shared-state/badge.svg)](https://docs.rs/shared-state)
+[![crates.io](https://img.shields.io/crates/v/shared-state.svg)](https://crates.io/crates/shared-state)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
+
 Concurrent state utilities for Rust services.
 
 Provides [`ReadyGate`] for readiness probing, [`TtlCache`] for time-expiring caches, [`SharedCounter`] for atomic counters, and type aliases for common concurrent patterns.
