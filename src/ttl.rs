@@ -56,6 +56,21 @@ impl<K: Eq + Hash + Clone, V: Clone> TtlCache<K, V> {
         self.inner.remove(key).map(|e| e.1.value)
     }
 
+    /// Remove an entry only if it has not expired, returning its value.
+    ///
+    /// Unlike [`TtlCache::remove`] (which returns the value even when
+    /// expired), this is the single-use-consume primitive: an expired entry
+    /// is dropped and reported as absent — exactly the semantics a CSRF
+    /// state store or one-time token cache needs.
+    pub fn take_fresh(&self, key: &K) -> Option<V> {
+        let (_, entry) = self.inner.remove(key)?;
+        if entry.expires_at > Instant::now() {
+            Some(entry.value)
+        } else {
+            None
+        }
+    }
+
     /// Remove all expired entries.
     pub fn cleanup(&self) {
         let now = Instant::now();
@@ -105,6 +120,29 @@ mod tests {
         cache.insert("key1", 42);
         assert_eq!(cache.remove(&"key1"), Some(42));
         assert_eq!(cache.get(&"key1"), None);
+    }
+
+    #[test]
+    fn take_fresh_returns_unexpired_and_consumes() {
+        let cache = TtlCache::new(Duration::from_secs(60));
+        cache.insert("key1", 42);
+        assert_eq!(cache.take_fresh(&"key1"), Some(42));
+        // Single use: gone after the first take.
+        assert_eq!(cache.take_fresh(&"key1"), None);
+        assert_eq!(cache.get(&"key1"), None);
+    }
+
+    #[test]
+    fn take_fresh_drops_expired_entries() {
+        let cache = TtlCache::new(Duration::from_millis(1));
+        cache.insert("key1", 42);
+        std::thread::sleep(Duration::from_millis(5));
+        assert_eq!(
+            cache.take_fresh(&"key1"),
+            None,
+            "expired entries must not be handed out by take_fresh"
+        );
+        assert_eq!(cache.len(), 0, "expired entry must be consumed");
     }
 
     #[test]
