@@ -5,6 +5,8 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-05
+
 ### Fixed
 
 - `TtlCache` is re-exported from the crate root. It was fully implemented
