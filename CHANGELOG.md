@@ -5,6 +5,14 @@ Changelog](https://keepachangelog.com/) — versions follow [semver](https://sem
 
 ## [Unreleased]
 
+### Fixed
+
+- `TtlCache` is re-exported from the crate root. It was fully implemented
+  behind `pub mod ttl` but `lib.rs` re-exported only `ReadyGate`, so the
+  obvious `use shared_state::TtlCache` failed with an unresolved import that
+  pointed nowhere near the real path (`shared_state::ttl::TtlCache`). Found by
+  the estate-integration `systems_substrate` suite.
+
 ## [0.1.1] - 2026-09-12
 
 ### Added

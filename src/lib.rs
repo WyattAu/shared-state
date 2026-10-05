@@ -15,6 +15,11 @@ pub mod ttl;
 mod loom_tests;
 
 pub use ready::ReadyGate;
+// `TtlCache` was fully implemented behind `pub mod ttl` but never re-exported
+// from the crate root, so the obvious `use shared_state::TtlCache` failed with
+// an unresolved import pointing nowhere near the real path. Found by the
+// estate-integration `systems_substrate` suite.
+pub use ttl::TtlCache;
 
 /// Type alias for a shared concurrent map backed by `tokio::sync::RwLock`.
 pub type SharedMap<K, V> = std::sync::Arc<tokio::sync::RwLock<std::collections::HashMap<K, V>>>;
