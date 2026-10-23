@@ -1,4 +1,5 @@
 # shared-state
+[![Estate integration](https://github.com/WyattAu/estate-integration/actions/workflows/ci.yml/badge.svg)](https://github.com/WyattAu/estate-integration/actions/workflows/ci.yml)
 
 [![docs.rs](https://docs.rs/shared-state/badge.svg)](https://docs.rs/shared-state)
 [![crates.io](https://img.shields.io/crates/v/shared-state.svg)](https://crates.io/crates/shared-state)
