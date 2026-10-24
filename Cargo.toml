@@ -1,10 +1,10 @@
 [package]
 exclude = ["/target"]
 name = "shared-state"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 rust-version = "1.85"
-description = "Concurrent state utilities — readiness gates, TTL caches, shared counters, type aliases"
+description = "Concurrent state utilities: readiness gates, TTL caches, shared counters, type aliases"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/WyattAu/shared-state"
 keywords = ["state", "concurrency", "cache"]
