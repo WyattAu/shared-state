@@ -1,10 +1,10 @@
-# Requirements — shared-state
+# Requirements: shared-state
 
 Numbered, testable requirements. Every requirement maps to at least one named
 test; every security-relevant test cites at least one requirement. Threat
 IDs reference `THREAT-MODEL.md`.
 
-Scope note: `shared-state` provides concurrent state utilities —
+Scope note: `shared-state` provides concurrent state utilities -
 `ReadyGate` (single-shot readiness broadcast), `SharedCounter` (atomic
 shared counter), `TtlCache` (expiry map), and `shared_map`/`shared_cache`
 constructors with ergonomic type aliases.

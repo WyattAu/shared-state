@@ -18,11 +18,11 @@ shared-state = "0.1"
 
 ## Features
 
-- **`ReadyGate`** — Thread-safe readiness gate for Kubernetes probes
-- **`TtlCache`** — Concurrent cache with per-entry TTL eviction
-- **`SharedCounter`** — Atomic counter with increment/decrement/reset
-- **`SharedMap<K,V>`** — Type alias for `Arc<RwLock<HashMap<K,V>>>`
-- **`SharedCache<K,V>`** — Type alias for `Arc<DashMap<K,V>>`
+- **`ReadyGate`**; Thread-safe readiness gate for Kubernetes probes
+- **`TtlCache`**; Concurrent cache with per-entry TTL eviction
+- **`SharedCounter`**; Atomic counter with increment/decrement/reset
+- **`SharedMap<K,V>`**; Type alias for `Arc<RwLock<HashMap<K,V>>>`
+- **`SharedCache<K,V>`**; Type alias for `Arc<DashMap<K,V>>`
 
 ## License
 
